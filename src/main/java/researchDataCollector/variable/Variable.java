@@ -1,13 +1,11 @@
 package researchDataCollector.variable;
 
-import javax.persistence.*;
+import java.io.Serializable;
 
-@Entity
-@Table(name = "Variables")
-public class VariableEntity {
+public class Variable implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private static final long serialVersionUID = 1L;
+
     private Long id;
 
     private Long researchId;
@@ -16,16 +14,12 @@ public class VariableEntity {
 
     private String type;
 
-    public VariableEntity() {}
-
-    public VariableEntity(Long researchId, String name, String type) {
-        this.researchId = researchId;
-        this.name = name;
-        this.type = type;
-    }
-
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getResearchId() {
@@ -50,5 +44,15 @@ public class VariableEntity {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return "Variable{" +
+                "id=" + id +
+                ", researchId=" + researchId +
+                ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                '}';
     }
 }

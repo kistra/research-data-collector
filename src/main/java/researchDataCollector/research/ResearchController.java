@@ -31,4 +31,10 @@ public class ResearchController {
     public Research findOne(@PathVariable Long id) {
         return researchMapper.toResearch(researchRepository.findOne(id));
     }
+
+    @RequestMapping(value = "/research", method = RequestMethod.POST)
+    public Research create(Research research) {
+        ResearchEntity researchEntity = researchRepository.save(researchMapper.toResearchEntity(research));
+        return researchMapper.toResearch(researchEntity);
+    }
 }

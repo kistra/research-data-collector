@@ -15,8 +15,8 @@ public class ResearchMapper {
 
     public ResearchEntity toResearchEntity(Research research) {
         ResearchEntity researchEntity = new ResearchEntity();
-        research.setAuthor(research.getAuthor());
-        research.setName(research.getName());
+        researchEntity.setAuthor(research.getAuthor());
+        researchEntity.setName(research.getName());
         return researchEntity;
     }
 }

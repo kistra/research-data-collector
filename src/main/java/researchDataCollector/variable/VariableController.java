@@ -19,16 +19,17 @@ public class VariableController {
         this.variableMapper = variableMapper;
     }
 
-    @RequestMapping(value = "/variable", method = RequestMethod.GET)
-    public List<Variable> findAll() {
-        return variableRepository.findAll()
-                .stream()
-                .map(variableMapper::toVariable)
-                .collect(Collectors.toList());
-    }
+    // TODO is this needed???
+//    @RequestMapping(value = "/variables", method = RequestMethod.GET)
+//    public List<Variable> findAll() {
+//        return variableRepository.findAll()
+//                .stream()
+//                .map(variableMapper::toVariable)
+//                .collect(Collectors.toList());
+//    }
 
     @RequestMapping(value = "/research/{researchId}/variables", method = RequestMethod.GET)
-    public List<Variable> findOne(@PathVariable Long researchId) {
+    public List<Variable> findByResearchId(@PathVariable Long researchId) {
         return variableRepository.findByResearchId(researchId)
                 .stream()
                 .map(variableMapper::toVariable)

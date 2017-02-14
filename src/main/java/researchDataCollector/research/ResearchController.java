@@ -33,7 +33,7 @@ public class ResearchController {
     }
 
     @RequestMapping(value = "/research", method = RequestMethod.POST)
-    public Research create(Research research) {
+    public Research create(@RequestBody Research research) {
         ResearchEntity researchEntity = researchRepository.save(researchMapper.toResearchEntity(research));
         return researchMapper.toResearch(researchEntity);
     }

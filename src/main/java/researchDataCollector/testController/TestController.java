@@ -11,6 +11,8 @@ import researchDataCollector.variable.VariableRepository;
 
 import java.util.List;
 
+import static java.util.Arrays.asList;
+
 @CrossOrigin
 @RestController
 public class TestController {
@@ -29,14 +31,13 @@ public class TestController {
         }
 
         ResearchEntity research = researchRepository.findAll().stream().findFirst().get();
+        Long researchId = research.getId();
 
-        VariableEntity v1 = new VariableEntity(research.getId(), "height", "numeric");
-        VariableEntity v2 = new VariableEntity(research.getId(), "weight", "numeric");
-        VariableEntity v3 = new VariableEntity(research.getId(), "gender", "text");
+        VariableEntity v1 = new VariableEntity(researchId, "height", "numeric");
+        VariableEntity v2 = new VariableEntity(researchId, "weight", "numeric");
+        VariableEntity v3 = new VariableEntity(researchId, "gender", "text");
 
-        variableRepository.save(v1);
-        variableRepository.save(v2);
-        variableRepository.save(v3);
+        variableRepository.save(asList(v1, v2, v3));
 
         return researchRepository.findAll();
     }

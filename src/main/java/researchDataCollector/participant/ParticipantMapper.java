@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 public class ParticipantMapper {
 
     public Participant toParticipant(ParticipantEntity participantEntity) {
+
         Participant participant = new Participant();
         participant.setId(participantEntity.getId());
         participant.setResearchId(participantEntity.getResearchId());
@@ -14,6 +15,7 @@ public class ParticipantMapper {
     }
 
     public ParticipantEntity toParticipantEntity(Participant participant) {
+
         ParticipantEntity participantEntity = new ParticipantEntity();
         participantEntity.setResearchId(participant.getResearchId());
         participantEntity.setName(participant.getName());

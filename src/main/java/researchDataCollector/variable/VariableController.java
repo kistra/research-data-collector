@@ -15,6 +15,7 @@ public class VariableController {
 
     @Autowired
     public VariableController(VariableRepository variableRepository, VariableMapper variableMapper) {
+
         this.variableRepository = variableRepository;
         this.variableMapper = variableMapper;
     }
@@ -30,9 +31,10 @@ public class VariableController {
 
     @RequestMapping(value = "/research/{researchId}/variables", method = RequestMethod.GET)
     public List<Variable> findByResearchId(@PathVariable Long researchId) {
+
         return variableRepository.findByResearchId(researchId)
-                .stream()
-                .map(variableMapper::toVariable)
-                .collect(Collectors.toList());
+                                 .stream()
+                                 .map(variableMapper::toVariable)
+                                 .collect(Collectors.toList());
     }
 }

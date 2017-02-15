@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 public class VariableMapper {
 
     public Variable toVariable(VariableEntity variableEntity) {
+
         Variable variable = new Variable();
         variable.setId(variableEntity.getId());
         variable.setResearchId(variableEntity.getResearchId());
